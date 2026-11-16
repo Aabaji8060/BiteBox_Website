@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="Js/script.js" defer></script>
+</head>
+<body>
+
+<!--Bite Box Project-->
+ <header>
+    <img src="Assests/Logo.png" alt="Bite Box Logo" width="100" height="100" class="Logo">
+
+<!--creating links-->
+
+<nav>
+    <a href="index.html">Home</a> |
+    <a href="menu.html">Menu</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="Cart.html">Cart</a> |
+    <a href="Login.html">Login</a> |
+</nav>
+</header>
+
+<!--Main Start-->
+<section id="menu-hero">
+    <h1>Delicious Food Delivered to Your Doorstep</h1>
+    <p>Fresh ingredients, fast delivery !..</p> 
+</section>
+
+<!--Adding Searching Button-->
+<form class="menu-search" id="menu-search-form" role="search">
+<input type="search" id="menu-search" placeholder="search for dishes...">
+<button type="submit" id="search-button">Search </button> 
+</form>
+
+<!--Creating category sections-->
+<section id="Categories">
+<h2>Our Popular Categories</h2>
+
+<article>
+<img src="Assests/burger.jpg" alt="burger" width="300" height="200">
+<h3>Cheesy Load Burger</h3>
+</article>
+
+<article>
+<img src="Assests/pizza.webp" alt="pizza" width="300" height="200">
+<h3>Cheesy Load Pizza</h3>
+</article>
+
+<article>
+<img src="Assests/pasta.jpg" alt="pasta" width="300" height="200">
+<h3>Italian Pasta</h3>
+</article>
+
+<article>
+<img src="Assests/Fries.jpg" alt="Fries" width="300" height="200">
+<h3>French Fries</h3>
+</article>
+
+<article>
+<img src="Assests/Sandwich.jpg" alt="Sandwich" width="300" height="200">
+<h3>Club Sandwich</h3>
+</article>
+</section>
+
+<!--Section for our Menu-->
+<section id="Menu-items">
+<h2>Our Menu</h2>
+<div>
+    <article>
+        <img src="Assests/burger.jpg" alt="burger" width="300" height="200">
+        <h3>Cheesy Load Burger</h3>
+        <p>$6.00</p>
+        <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><br><br>
+        <button>Order Now</button><br><br>
+    </article>
+
+    <article>
+        <img src="Assests/pizza.webp" alt="pizza" width="300" height="200">
+        <h3>Cheesy Load Pizza</h3>
+        <p>$10.00</p>
+        <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><br><br>
+        <button>Order Now</button><br><br>
+    </article>
+
+    <article>
+        <img src="Assests/Pasta.jpg" alt="Pasta" width="300" height="200">
+        <h3>Italian Pasta</h3>
+        <p>$8.00</p>
+        <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><br><br>
+        <button>Order Now</button><br><br>
+    </article>
+
+    <article>
+        <img src="Assests/Fries.jpg" alt="Fries" width="300" height="200">
+        <h3>French Fries</h3>
+        <p>$5.00</p>
+        <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><br><br>
+        <button>Order Now</button><br><br>
+    </article>
+
+    <article>
+        <img src="Assests/Sandwich.jpg" alt="Sandwich" width="300" height="200">
+        <h3>Club Sandwich</h3>
+        <p>$9.00</p>
+        <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><br><br>
+        <button>Order Now</button><br><br>
+    </article>
+</div>
+</section>
+
+<!--Offer Start-->
+<!--Today's Special Offer-->
+<section id="offer" class="menu-offer">
+    <div class="offer-content">
+    
+    <h2>Today's Special Offer</h2>
+     <p>Get <b>20% OFF</b> on your <u>First Order</u></p>
+     <strong>Upto Rs.499</strong>
+     <p>Use Code <strong>SAVE 20%</strong></p>
+     <a href="menu.html">Order Now</a>  
+      <p>Offer Valid for a limited time only</p>
+     </div>
+</section>
+
+<button id="add-menu-btn" type="button">
+    + Add Menu Items
+</button>
+<div id="menu-container">
+    <!--Existing Hardcoded menu cards-->
+</div>
+
+<div id="menu-modal">
+    <form id="menu-form">
+        <h2 id="modal-title">Add Menu Items</h2>
+        <input id="menu-name" placeholder="Name" required>
+        <input id="menu-price" type="number" placeholder="price" required>
+        <input id="menu-category" placeholder="category" required>
+        <input id="menu-rating" placeholder="rating" required>
+        <input id="menu-reviews" type="number" placeholder="reviews" required>
+        <input id="menu-image" placeholder="Image-URL" required>
+        <button type="submit">Save</button>
+        <button type="button" id="cancel-menu-form">cancel</button>
+    </form>
+</div>
+
+
+<!--Adding Footer-->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- About BiteBox -->
+        <section class="footer-about">
+            <img src="Assests/logo.png" alt="BiteBox Logo" width="180">
+
+            <p>
+                Delicious food delivered to your doorstep.
+                Fresh, fast and tasty!
+            </p>
+
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">
+                    <img src="Assests/Facebook.webp" alt="Facebook">
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <img src="Assests/Instagram.svg" alt="Instagram">
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <img src="Assests/Twitter.jpg" alt="Twitter">
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <img src="Assests/Youtube.png" alt="YouTube">
+                </a>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>&#128222; +91 98765 43210</p>
+            <p>✉ support@bitebox.com</p>
+            <p>123 Food Street, Mumbai, Maharashtra 400001</p>
+        </section>
+
+        <!-- Opening Hours -->
+        <section class="footer-hours">
+            <h3>Opening Hours</h3>
+            <p>Monday - Sunday</p>
+            <p>10:00 AM - 9:00 PM</p>
+        </section>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 BiteBox. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
