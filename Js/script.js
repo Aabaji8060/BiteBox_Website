@@ -149,6 +149,7 @@ if(searchForm && searchinput)
 let themeButton=document.getElementById("theme-toggle");
 function toggleTheme() {
     document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-theme");
     let themeIcon=themeButton.querySelector(".theme-icon");
     let themeText=themeButton.querySelector(".theme-text");
     let isDarkTheme=document.body.classList.contains("dark-mode");
@@ -173,6 +174,7 @@ function loadTheme() {
     let isDarkTheme=savedTheme==="dark";
 
     document.body.classList.toggle("dark-mode",isDarkTheme);
+    document.body.classList.toggle("dark-theme",isDarkTheme);
     if(themeButton) {
         let themeIcon=themeButton.querySelector(".theme-icon");
         let themeText=themeButton.querySelector(".theme-text");
@@ -201,16 +203,18 @@ const addMenuBtn = document.getElementById("add-menu-btn");
 let updateMenuId = null;
 
 // 3. Open and Close Modal
-addMenuBtn.addEventListener("click", () => {
-    updateMenuId = null;
-    menuForm.reset();
-    document.getElementById("modal-title").textContent = "Add Menu Item";
-    menuModal.classList.add("show");
-});
+if (addMenuBtn && menuForm && menuModal) {
+    addMenuBtn.addEventListener("click", () => {
+        updateMenuId = null;
+        menuForm.reset();
+        document.getElementById("modal-title").textContent = "Add Menu Item";
+        menuModal.classList.add("show");
+    });
 
-document.getElementById("cancel-menu-form").addEventListener("click", () => {
-    menuModal.classList.remove("show");
-});
+    document.getElementById("cancel-menu-form").addEventListener("click", () => {
+        menuModal.classList.remove("show");
+    });
+}
 
 // 4. Display Menu Cards
 function displayMenuItems(items) {
@@ -263,7 +267,7 @@ async function fetchMenuItems() {
 }
 
 // 6. POST / PUT - Add or Update Menu Item
-menuForm.addEventListener("submit", async (event) => {
+if (menuForm) menuForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const menuItem = {
@@ -303,7 +307,7 @@ menuForm.addEventListener("submit", async (event) => {
 });
 
 // 7. UPDATE / DELETE - Event Delegation
-menuContainer.addEventListener("click", async (event) => {
+if (menuContainer) menuContainer.addEventListener("click", async (event) => {
 
     const card = event.target.closest(".api-menu-card");
     if (!card) return;
@@ -378,10 +382,13 @@ function applyFilters() {
 }
 
 // Search
-document.getElementById("menu-search").addEventListener("input", (event) => {
-    searchText = event.target.value.trim().toLowerCase();
-    applyFilters();
-});
+const apiSearchInput = document.getElementById("menu-search");
+if (apiSearchInput) {
+    apiSearchInput.addEventListener("input", (event) => {
+        searchText = event.target.value.trim().toLowerCase();
+        applyFilters();
+    });
+}
 
 // Category Filter
 function filterMenu(category) {
@@ -390,4 +397,6 @@ function filterMenu(category) {
 }
 
 // 9. Load Menu When Page Opens
-fetchMenuItems();
+if (menuContainer && menuForm) {
+    fetchMenuItems();
+}

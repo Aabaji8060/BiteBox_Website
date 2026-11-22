@@ -463,17 +463,22 @@ nav a:hover{
 }
 
 #shopping-cart {
-    padding: 0 25px;
-    width: 65%;
+    box-sizing: border-box;
+    display: block;
+    padding: 0 20px 20px;
+    width: 100%;
+    max-width: 100%;
     background: white;
-    border: 1px solid white;
+    border: 1px solid #ececec;
     border-radius: 14px;
     margin-top: 50px;
-    margin-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #shopping-cart table {
-    width: 100px;
+    width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
 }
 
@@ -482,7 +487,7 @@ nav a:hover{
 }
 
 #shopping-cart th {
-    padding: 10px 120px;
+    padding: 14px 8px;
     font-size: 17px;
     font-weight: 600;
     color: #222;
@@ -491,10 +496,44 @@ nav a:hover{
 }
 
 #shopping-cart td {
-    padding: 10px;
+    padding: 14px 8px;
     border-top: 1px solid #ececec;
     vertical-align: middle;
     text-align: center;
+}
+
+#shopping-cart th:nth-child(1),
+#shopping-cart td:nth-child(1) {
+    width: 36%;
+}
+
+#shopping-cart th:nth-child(2),
+#shopping-cart td:nth-child(2),
+#shopping-cart th:nth-child(4),
+#shopping-cart td:nth-child(4),
+#shopping-cart th:nth-child(5),
+#shopping-cart td:nth-child(5) {
+    width: 16%;
+}
+
+#shopping-cart th:nth-child(3),
+#shopping-cart td:nth-child(3) {
+    width: 16%;
+}
+
+.quantity-box {
+    white-space: nowrap;
+}
+
+.quantity-box button,
+#shopping-cart td:last-child button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
 }
  
 .cart-item {
@@ -523,15 +562,16 @@ nav a:hover{
     margin-bottom: 5px;
 }
 #order-summary {
-    width: 200px;
+    box-sizing: border-box;
+    display: block;
+    width: calc(100% - 40px);
+    max-width: 360px;
     background: white;
-    border: 1px solid red;
+    border: 2px solid #ff0000;
     border-radius: 14px;
     padding: 30px;
-    height: 350px;
-    margin-left: 50px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    height: auto;
+    margin: 24px auto 30px 20px;
 }
 
 #order-summary h2{
@@ -545,12 +585,18 @@ nav a:hover{
     color: #3e3d3d;
     margin-bottom: 20px;
     display: flex;
+    justify-content: space-between;
 }
 
 #order-summary hr {
     margin: 22px 0;
     border: none;
     border-top: 1px dashed red;
+}
+
+body.dark-mode #order-summary,
+body.dark-theme #order-summary {
+    border: 2px solid #ff0000;
 }
 
 #order-summary h3 {
@@ -1175,14 +1221,14 @@ body.dark-mode #Reviews h2 {
 body.dark-mode .feature-card,
 body.dark-mode #Popular-Dishes article,
 body.dark-mode #Reviews article {
-    background-color: whitesmoke;
-    box-shadow: 0 4px 12px gray;
-    border: 1px solid#444444;
+    background-color: #262626;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+    border: 1px solid #444444;
 }
 body.dark-mode .feature-card p,
 body.dark-mode  #Popular-Dishes article p,
 body.dark-mode #Reviews article>p {
-    color: #999999;
+    color: #c7c7c7;
 }
 body.theme-loading *,
 body.theme-loading *::before,
@@ -1453,6 +1499,481 @@ body.dark-theme #menu-container .delete-menu-btn:hover {
         padding-right: 16px;
         padding-left: 16px;
     }
+}
+
+/* Shared dark and light theme styles for every page */
+body,
+header,
+section,
+article,
+form,
+input,
+textarea,
+button,
+table {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+body.dark-mode,
+body.dark-theme {
+    background: #121212;
+    color: #f5f5f5;
+}
+
+body.dark-mode main,
+body.dark-theme main {
+    background: #121212;
+}
+
+body.dark-mode #menu-hero,
+body.dark-mode #cart-hero,
+body.dark-mode #contact-hero,
+body.dark-theme #menu-hero,
+body.dark-theme #cart-hero,
+body.dark-theme #contact-hero {
+    background: linear-gradient(135deg, #24211f, #30291f);
+}
+
+body.dark-mode #Categories,
+body.dark-mode #Menu-items,
+body.dark-mode #contact-info,
+body.dark-mode #contact-form,
+body.dark-mode #google-map,
+body.dark-theme #Categories,
+body.dark-theme #Menu-items,
+body.dark-theme #contact-info,
+body.dark-theme #contact-form,
+body.dark-theme #google-map {
+    background: #121212;
+}
+
+body.dark-mode #Categories h2,
+body.dark-mode #Menu-items h2,
+body.dark-mode .section-title h2,
+body.dark-mode .hero-content h2,
+body.dark-mode .hero-content p,
+body.dark-theme #Categories h2,
+body.dark-theme #Menu-items h2,
+body.dark-theme .section-title h2,
+body.dark-theme .hero-content h2,
+body.dark-theme .hero-content p {
+    color: #f5f5f5;
+}
+
+body.dark-mode #Features h2,
+body.dark-mode #Popular-Dishes h2,
+body.dark-mode #Reviews h2,
+body.dark-mode #menu-hero h1,
+body.dark-mode #menu-hero p,
+body.dark-mode #cart-hero h2,
+body.dark-mode #cart-hero p,
+body.dark-theme #Features h2,
+body.dark-theme #Popular-Dishes h2,
+body.dark-theme #Reviews h2,
+body.dark-theme #menu-hero h1,
+body.dark-theme #menu-hero p,
+body.dark-theme #cart-hero h2,
+body.dark-theme #cart-hero p {
+    color: #ffb347;
+}
+
+/* Contact page heading text */
+body.dark-mode #contact-hero h2,
+body.dark-mode #contact-hero p,
+body.dark-mode #contact-info .section-title h2,
+body.dark-mode #contact-info .section-title h4,
+body.dark-mode #contact-form .section-title h2,
+body.dark-mode #contact-form .section-title h4,
+body.dark-mode #google-map .section-title h2,
+body.dark-mode #google-map .section-title h4,
+body.dark-theme #contact-hero h2,
+body.dark-theme #contact-hero p,
+body.dark-theme #contact-info .section-title h2,
+body.dark-theme #contact-info .section-title h4,
+body.dark-theme #contact-form .section-title h2,
+body.dark-theme #contact-form .section-title h4,
+body.dark-theme #google-map .section-title h2,
+body.dark-theme #google-map .section-title h4 {
+    color: #ffb347;
+}
+
+body.dark-mode #Features,
+body.dark-mode #Popular-Dishes,
+body.dark-mode #Reviews,
+body.dark-theme #Features,
+body.dark-theme #Popular-Dishes,
+body.dark-theme #Reviews {
+    background: #151515;
+}
+
+body.dark-mode .feature-card,
+body.dark-mode #Popular-Dishes article,
+body.dark-mode #Reviews article,
+body.dark-theme .feature-card,
+body.dark-theme #Popular-Dishes article,
+body.dark-theme #Reviews article {
+    background: #262626;
+    border: 1px solid #3d3d3d;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.58);
+}
+
+body.dark-mode .feature-card h3,
+body.dark-mode #Popular-Dishes article h3,
+body.dark-mode #Reviews article h3,
+body.dark-mode .review-card p,
+body.dark-mode .cart-item h3,
+body.dark-theme .feature-card h3,
+body.dark-theme #Popular-Dishes article h3,
+body.dark-theme #Reviews article h3,
+body.dark-theme .review-card p,
+body.dark-theme .cart-item h3 {
+    color: #f7f7f7;
+}
+
+body.dark-mode #Categories article,
+body.dark-mode #Menu-items article,
+body.dark-mode .contact-container article,
+body.dark-mode #contact-form form,
+body.dark-mode #login-info,
+body.dark-mode #shopping-cart,
+body.dark-mode #order-summary,
+body.dark-mode #menu-container .api-menu-card,
+body.dark-theme #Categories article,
+body.dark-theme #Menu-items article,
+body.dark-theme .contact-container article,
+body.dark-theme #contact-form form,
+body.dark-theme #login-info,
+body.dark-theme #shopping-cart,
+body.dark-theme #order-summary,
+body.dark-theme #menu-container .api-menu-card {
+    border-color: #3a3a3a;
+    background: #1f1f1f;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+    color: #f5f5f5;
+}
+
+body.dark-mode #Categories article h3,
+body.dark-mode #Categories article p,
+body.dark-mode #Menu-items article h3,
+body.dark-mode #Menu-items article p,
+body.dark-mode .contact-container article h3,
+body.dark-mode .contact-container article p,
+body.dark-mode #contact-info table,
+body.dark-mode #login-info h4,
+body.dark-mode #shopping-cart td,
+body.dark-mode #shopping-cart th,
+body.dark-mode #order-summary h2,
+body.dark-mode #order-summary h3,
+body.dark-mode #order-summary p,
+body.dark-mode #menu-container .api-menu-card h3,
+body.dark-mode #menu-container .api-menu-card p,
+body.dark-theme #Categories article h3,
+body.dark-theme #Categories article p,
+body.dark-theme #Menu-items article h3,
+body.dark-theme #Menu-items article p,
+body.dark-theme .contact-container article h3,
+body.dark-theme .contact-container article p,
+body.dark-theme #contact-info table,
+body.dark-theme #login-info h4,
+body.dark-theme #shopping-cart td,
+body.dark-theme #shopping-cart th,
+body.dark-theme #order-summary h2,
+body.dark-theme #order-summary h3,
+body.dark-theme #order-summary p,
+body.dark-theme #menu-container .api-menu-card h3,
+body.dark-theme #menu-container .api-menu-card p {
+    color: #e8e8e8;
+}
+
+body.dark-mode #shopping-cart thead,
+body.dark-mode #order-summary hr,
+body.dark-theme #shopping-cart thead,
+body.dark-theme #order-summary hr {
+    background: #2c2c2c;
+}
+
+body.dark-mode #contact-form form input,
+body.dark-mode #contact-form form textarea,
+body.dark-mode .login-form form input,
+body.dark-mode .menu-search,
+body.dark-mode .menu-search input,
+body.dark-theme #contact-form form input,
+body.dark-theme #contact-form form textarea,
+body.dark-theme .login-form form input,
+body.dark-theme .menu-search,
+body.dark-theme .menu-search input {
+    border-color: #4b4b4b;
+    background: #262626;
+    color: #f5f5f5;
+}
+
+body.dark-mode #contact-form form input::placeholder,
+body.dark-mode #contact-form form textarea::placeholder,
+body.dark-mode .login-form form input::placeholder,
+body.dark-mode .menu-search input::placeholder,
+body.dark-theme #contact-form form input::placeholder,
+body.dark-theme #contact-form form textarea::placeholder,
+body.dark-theme .login-form form input::placeholder,
+body.dark-theme .menu-search input::placeholder {
+    color: #a8a8a8;
+}
+
+/* Dark menu page heading and category card treatment */
+body.dark-mode #menu-hero h1,
+body.dark-mode #menu-hero p,
+body.dark-mode #Categories h2,
+body.dark-mode #Menu-items h2,
+body.dark-theme #menu-hero h1,
+body.dark-theme #menu-hero p,
+body.dark-theme #Categories h2,
+body.dark-theme #Menu-items h2 {
+    color: #ffb347;
+}
+
+body.dark-mode #Categories article,
+body.dark-theme #Categories article {
+    background: #000000;
+    border: 1px solid #303030;
+    box-shadow:
+        0 8px 20px rgba(255, 255, 255, 0.18),
+        0 5px 14px rgba(0, 0, 0, 0.65);
+}
+
+body.dark-mode #Categories article h3,
+body.dark-mode #Categories article p,
+body.dark-theme #Categories article h3,
+body.dark-theme #Categories article p {
+    color: #ffffff;
+}
+
+body.dark-mode .menu-search button,
+body.dark-theme .menu-search button {
+    background: gray;
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.22);
+}
+
+body.dark-mode .menu-search button:hover,
+body.dark-theme .menu-search button:hover {
+    background: #f2f2f2;
+    color: #111111;
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.32);
+}
+
+@media (max-width: 900px) {
+    #shopping-cart,
+    #order-summary {
+        display: block;
+        width: calc(100% - 40px);
+        max-width: none;
+        margin: 24px 20px;
+    }
+
+    #order-summary {
+        margin-right: 20px;
+        height: auto;
+    }
+
+    #order-summary button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    #shopping-cart {
+        overflow-x: auto;
+        padding: 0 10px;
+    }
+
+    #shopping-cart table {
+        min-width: 620px;
+    }
+
+    #shopping-cart th {
+        font-size: 14px;
+    }
+
+    .cart-item {
+        gap: 8px;
+    }
+
+    .cart-item img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .cart-item h3 {
+        font-size: 14px;
+    }
+}
+
+/* Keep card surfaces white across every page */
+body.dark-mode .feature-card,
+body.dark-mode #Popular-Dishes article,
+body.dark-mode #Reviews article,
+body.dark-mode #Categories article,
+body.dark-mode #Menu-items article,
+body.dark-mode .contact-container article,
+body.dark-mode #contact-form form,
+body.dark-mode #login-info,
+body.dark-mode #shopping-cart,
+body.dark-mode #order-summary,
+body.dark-mode #menu-container .api-menu-card,
+body.dark-theme .feature-card,
+body.dark-theme #Popular-Dishes article,
+body.dark-theme #Reviews article,
+body.dark-theme #Categories article,
+body.dark-theme #Menu-items article,
+body.dark-theme .contact-container article,
+body.dark-theme #contact-form form,
+body.dark-theme #login-info,
+body.dark-theme #shopping-cart,
+body.dark-theme #order-summary,
+body.dark-theme #menu-container .api-menu-card {
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    color: #222222;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.38);
+}
+
+body.dark-mode .feature-card h3,
+body.dark-mode #Popular-Dishes article h3,
+body.dark-mode #Reviews article h3,
+body.dark-mode #Categories article h3,
+body.dark-mode #Menu-items article h3,
+body.dark-mode .contact-container article h3,
+body.dark-mode #login-info h4,
+body.dark-mode #shopping-cart th,
+body.dark-mode #shopping-cart td,
+body.dark-mode #order-summary h2,
+body.dark-mode #order-summary h3,
+body.dark-mode #order-summary p,
+body.dark-mode #menu-container .api-menu-card h3,
+body.dark-theme .feature-card h3,
+body.dark-theme #Popular-Dishes article h3,
+body.dark-theme #Reviews article h3,
+body.dark-theme #Categories article h3,
+body.dark-theme #Menu-items article h3,
+body.dark-theme .contact-container article h3,
+body.dark-theme #login-info h4,
+body.dark-theme #shopping-cart th,
+body.dark-theme #shopping-cart td,
+body.dark-theme #order-summary h2,
+body.dark-theme #order-summary h3,
+body.dark-theme #order-summary p,
+body.dark-theme #menu-container .api-menu-card h3 {
+    color: #222222;
+}
+
+body.dark-mode .feature-card p,
+body.dark-mode #Popular-Dishes article p,
+body.dark-mode #Reviews article p,
+body.dark-mode #Categories article p,
+body.dark-mode #Menu-items article p,
+body.dark-mode .contact-container article p,
+body.dark-mode #contact-info table,
+body.dark-mode #menu-container .api-menu-card p,
+body.dark-theme .feature-card p,
+body.dark-theme #Popular-Dishes article p,
+body.dark-theme #Reviews article p,
+body.dark-theme #Categories article p,
+body.dark-theme #Menu-items article p,
+body.dark-theme .contact-container article p,
+body.dark-theme #contact-info table,
+body.dark-theme #menu-container .api-menu-card p {
+    color: #555555;
+}
+
+/* Dark cart table */
+body.dark-mode #shopping-cart,
+body.dark-theme #shopping-cart {
+    background: #000000;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+body.dark-mode #shopping-cart table,
+body.dark-mode #shopping-cart thead,
+body.dark-mode #shopping-cart tbody,
+body.dark-mode #shopping-cart tr,
+body.dark-theme #shopping-cart table,
+body.dark-theme #shopping-cart thead,
+body.dark-theme #shopping-cart tbody,
+body.dark-theme #shopping-cart tr {
+    background: #000000;
+}
+
+body.dark-mode #shopping-cart th,
+body.dark-mode #shopping-cart td,
+body.dark-mode #shopping-cart .cart-item h3,
+body.dark-mode #shopping-cart .cart-item span,
+body.dark-mode #shopping-cart .quantity-box span,
+body.dark-theme #shopping-cart th,
+body.dark-theme #shopping-cart td,
+body.dark-theme #shopping-cart .cart-item h3,
+body.dark-theme #shopping-cart .cart-item span,
+body.dark-theme #shopping-cart .quantity-box span {
+    color: #ffffff;
+}
+
+body.dark-mode #shopping-cart th,
+body.dark-mode #shopping-cart td,
+body.dark-theme #shopping-cart th,
+body.dark-theme #shopping-cart td {
+    border-color: #ffffff;
+}
+
+body.dark-mode #shopping-cart th {
+    background: #000000;
+    border-bottom: 1px solid #ffffff;
+}
+
+body.dark-mode #shopping-cart td,
+body.dark-theme #shopping-cart td {
+    border-top: 1px solid #ffffff;
+}
+
+body.dark-mode #shopping-cart th,
+body.dark-mode #shopping-cart td,
+body.dark-theme #shopping-cart th,
+body.dark-theme #shopping-cart td {
+    border-right: 1px solid #ffffff;
+}
+
+body.dark-mode #shopping-cart th:last-child,
+body.dark-mode #shopping-cart td:last-child,
+body.dark-theme #shopping-cart th:last-child,
+body.dark-theme #shopping-cart td:last-child {
+    border-right: 0;
+}
+
+body.dark-mode #shopping-cart .quantity-box button,
+body.dark-mode #shopping-cart td:last-child button,
+body.dark-theme #shopping-cart .quantity-box button,
+body.dark-theme #shopping-cart td:last-child button {
+    background: #000000;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+/* Smoky white card shadows on the index page */
+body .feature-card,
+body #Popular-Dishes article,
+body #Reviews article,
+body .review-card {
+    box-shadow:
+        0 8px 20px rgba(255, 255, 255, 0.16),
+        0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+body .feature-card:hover,
+body #Popular-Dishes article:hover,
+body #Reviews article:hover,
+body .review-card:hover {
+    box-shadow:
+        0 12px 28px rgba(255, 255, 255, 0.24),
+        0 8px 18px rgba(0, 0, 0, 0.22);
 }
 
 
